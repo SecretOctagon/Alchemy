@@ -9,7 +9,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Camera FPCamera;
     [SerializeField] Transform[] camPositions;
     [SerializeField] float camVSpeed;
-    [SerializeField] [Range(-1, 1)] float camT;
+    //[SerializeField] [Range(-1, 1)] 
+    float camT;
     Vector2 lookInput { get => inputs.Player.Look.ReadValue<Vector2>(); }
 
     [Header("movement")]
@@ -30,12 +31,19 @@ public class PlayerMovement : MonoBehaviour
     [Header("inventory")]
     //inventory
 
+    public static PlayerMovement active;
     PlayerControls inputs;
 
     private void Awake()
     {
+        active = this;
+
         inputs = new PlayerControls();
         inputs.Player.Jump.performed += ctx => Jump();
+
+        inputs.Player.Interact.performed += ctx => PlayerGrab.active.GrabOrRelease();
+        inputs.Player.Back.performed += ctx => PlayerGrab.active.Release();
+        inputs.Player.Inventory.performed += ctx => PlayerGrab.active.ToInventory();
     }
     private void OnEnable()
     {

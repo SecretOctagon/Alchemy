@@ -28,11 +28,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4722347821827964377, guid: 71eb06352a79acf48868c76c02b04534,
         type: 3}
-    - target: {fileID: 5418619879586725827, guid: d6f52805302fb024794a7e996e78d631,
-        type: 3}
-      propertyPath: m_Name
-      value: Vial cylinder
-      objectReference: {fileID: 0}
     - target: {fileID: 7001756920205873898, guid: d6f52805302fb024794a7e996e78d631,
         type: 3}
       propertyPath: m_Mesh
@@ -93,6 +88,42 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041691389653354665, guid: d6f52805302fb024794a7e996e78d631,
+        type: 3}
+      propertyPath: fill
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041691389653354665, guid: d6f52805302fb024794a7e996e78d631,
+        type: 3}
+      propertyPath: restTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041691389653354665, guid: d6f52805302fb024794a7e996e78d631,
+        type: 3}
+      propertyPath: wavePeriod
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041691389653354665, guid: d6f52805302fb024794a7e996e78d631,
+        type: 3}
+      propertyPath: angularVelocityResponse
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041691389653354665, guid: d6f52805302fb024794a7e996e78d631,
+        type: 3}
+      propertyPath: directionalVelocityResponse
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8632031300087020771, guid: d6f52805302fb024794a7e996e78d631,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -8856967515844327214, guid: 71eb06352a79acf48868c76c02b04534,
+        type: 3}
+    - target: {fileID: 9119538325523689329, guid: d6f52805302fb024794a7e996e78d631,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1518410276154391571, guid: d6f52805302fb024794a7e996e78d631, type: 3}

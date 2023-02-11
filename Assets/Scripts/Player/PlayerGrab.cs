@@ -41,14 +41,14 @@ public class PlayerGrab : MonoBehaviour
         switch (isHolding)
         {
             case false:
-                switch (Physics.Raycast(ray, out RaycastHit hitInfo, MaxGrabDistance, ScanMask))
+                switch (Physics.Raycast(ray, out RaycastHit hitInfo, MaxGrabDistance, ScanMask, QueryTriggerInteraction.Ignore))
                 {
                     case true:
                         switch (hitInfo.rigidbody && hitInfo.rigidbody.gameObject.layer == grabLayer)
                         {
                             case true:
                                 holdObject = hitInfo.rigidbody.GetComponent<PortableItem>();
-                                Debug.Log("looking at " + holdObject);
+                                //Debug.Log("looking at " + holdObject);
                                 switch ((bool)holdObject)
                                 {
                                     case true:
@@ -65,15 +65,15 @@ public class PlayerGrab : MonoBehaviour
                 holdObject = null;
                 break;
             case true:
-                switch (Physics.SphereCast(ray, holdObject.radius, out RaycastHit hit, HoldDistance, ScanMask))
+                switch (Physics.SphereCast(ray, holdObject.radius, out RaycastHit hit, HoldDistance, ScanMask, QueryTriggerInteraction.Ignore))
                 {
                     case true:
                         targetTransform.position = hit.point + holdObject.radius * hit.normal;
-                        Debug.Log("hit at " + hit.point);
+                        //Debug.Log("hit at " + hit.point);
                         break;
                     case false:
                         targetTransform.position = cam.transform.TransformPoint(0, 0, HoldDistance);
-                        Debug.Log("no hit, moving to " + targetTransform.position);
+                        //Debug.Log("no hit, moving to " + targetTransform.position);
                         break;
                 }
                 holdObject.rb.MovePosition(targetTransform.position);

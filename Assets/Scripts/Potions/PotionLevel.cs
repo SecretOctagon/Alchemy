@@ -5,6 +5,7 @@ using UnityEngine;
 public class PotionLevel : MonoBehaviour
 {
     [Range(0, 1)] public float fill;
+
     [Header("components")]
     [SerializeField] Rigidbody rb;
     [SerializeField] Renderer rend;
@@ -82,6 +83,11 @@ public class PotionLevel : MonoBehaviour
         }
         //Debug.Log(transform.parent.name + " lowest point is " + lowest + " higiest is " + highiest);
         return new Vector2(lowest, highiest);
+    }
+
+    public void SetMaterial(Material material)
+    {
+        rend.material = material;
     }
 
     private void OnDrawGizmosSelected()

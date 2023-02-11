@@ -28,6 +28,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4722347821827964377, guid: 71eb06352a79acf48868c76c02b04534,
         type: 3}
+    - target: {fileID: 4812252658564862318, guid: d6f52805302fb024794a7e996e78d631,
+        type: 3}
+      propertyPath: stats
+      value: 
+      objectReference: {fileID: 11400000, guid: f2c1479d81c102c4da74eb9a708f7787,
+        type: 2}
+    - target: {fileID: 4812252658564862318, guid: d6f52805302fb024794a7e996e78d631,
+        type: 3}
+      propertyPath: capacity
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812252658564862318, guid: d6f52805302fb024794a7e996e78d631,
+        type: 3}
+      propertyPath: sizePrefix
+      value: Large
+      objectReference: {fileID: 0}
     - target: {fileID: 7001756920205873898, guid: d6f52805302fb024794a7e996e78d631,
         type: 3}
       propertyPath: m_Mesh

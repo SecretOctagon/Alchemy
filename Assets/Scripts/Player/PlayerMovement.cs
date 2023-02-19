@@ -41,8 +41,7 @@ public class PlayerMovement : MonoBehaviour
         inputs = new PlayerControls();
         inputs.Player.Jump.performed += ctx => Jump();
 
-        inputs.Player.Interact.performed += ctx => PlayerGrab.active.GrabOrRelease();
-        inputs.Player.Back.performed += ctx => PlayerGrab.active.Release();
+        inputs.Player.Grab.performed += ctx => PlayerGrab.active.GrabOrRelease();
         inputs.Player.Inventory.performed += ctx => PlayerGrab.active.ToInventory();
     }
     private void OnEnable()

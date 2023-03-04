@@ -24,6 +24,6 @@ public class PortableItem : MonoBehaviour
 public enum ItemStorage
 {
     none,
-    toLab,
+    toCollection,
     toBelt
 }

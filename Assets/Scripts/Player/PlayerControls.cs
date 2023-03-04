@@ -80,15 +80,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Pause"",
-                    ""type"": ""Button"",
-                    ""id"": ""1c2c05af-a38c-46f3-8583-48a8138153c8"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -267,28 +258,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Use"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""83fe2d8f-2aff-4e87-a7a1-fc8b0fefc6da"",
-                    ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Pause"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""2f5e7752-4e67-4c5a-95bd-df15fc82cf64"",
-                    ""path"": ""<Gamepad>/start"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Xbox"",
-                    ""action"": ""Pause"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -331,6 +300,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Close"",
+                    ""type"": ""Button"",
+                    ""id"": ""97d2e931-aaa4-496f-b844-37bc9d0d74ef"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -498,6 +476,28 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Chapter"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cb001c99-e98c-4857-930b-bcde17922c81"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Close"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""07435b3e-0daf-4dd5-b877-8e5569efe637"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Xbox"",
+                    ""action"": ""Close"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -540,13 +540,13 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_Grab = m_Player.FindAction("Grab", throwIfNotFound: true);
         m_Player_Use = m_Player.FindAction("Use", throwIfNotFound: true);
         m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
-        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         // Book
         m_Book = asset.FindActionMap("Book", throwIfNotFound: true);
         m_Book_Collection = m_Book.FindAction("Collection", throwIfNotFound: true);
         m_Book_Talk = m_Book.FindAction("Talk", throwIfNotFound: true);
         m_Book_Page = m_Book.FindAction("Page", throwIfNotFound: true);
         m_Book_Chapter = m_Book.FindAction("Chapter", throwIfNotFound: true);
+        m_Book_Close = m_Book.FindAction("Close", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -612,7 +612,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Grab;
     private readonly InputAction m_Player_Use;
     private readonly InputAction m_Player_Inventory;
-    private readonly InputAction m_Player_Pause;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -623,7 +622,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Grab => m_Wrapper.m_Player_Grab;
         public InputAction @Use => m_Wrapper.m_Player_Use;
         public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
-        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -651,9 +649,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Inventory.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
                 @Inventory.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
                 @Inventory.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
-                @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
-                @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
-                @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -676,9 +671,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Inventory.started += instance.OnInventory;
                 @Inventory.performed += instance.OnInventory;
                 @Inventory.canceled += instance.OnInventory;
-                @Pause.started += instance.OnPause;
-                @Pause.performed += instance.OnPause;
-                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -691,6 +683,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Book_Talk;
     private readonly InputAction m_Book_Page;
     private readonly InputAction m_Book_Chapter;
+    private readonly InputAction m_Book_Close;
     public struct BookActions
     {
         private @PlayerControls m_Wrapper;
@@ -699,6 +692,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Talk => m_Wrapper.m_Book_Talk;
         public InputAction @Page => m_Wrapper.m_Book_Page;
         public InputAction @Chapter => m_Wrapper.m_Book_Chapter;
+        public InputAction @Close => m_Wrapper.m_Book_Close;
         public InputActionMap Get() { return m_Wrapper.m_Book; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -720,6 +714,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Chapter.started -= m_Wrapper.m_BookActionsCallbackInterface.OnChapter;
                 @Chapter.performed -= m_Wrapper.m_BookActionsCallbackInterface.OnChapter;
                 @Chapter.canceled -= m_Wrapper.m_BookActionsCallbackInterface.OnChapter;
+                @Close.started -= m_Wrapper.m_BookActionsCallbackInterface.OnClose;
+                @Close.performed -= m_Wrapper.m_BookActionsCallbackInterface.OnClose;
+                @Close.canceled -= m_Wrapper.m_BookActionsCallbackInterface.OnClose;
             }
             m_Wrapper.m_BookActionsCallbackInterface = instance;
             if (instance != null)
@@ -736,6 +733,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Chapter.started += instance.OnChapter;
                 @Chapter.performed += instance.OnChapter;
                 @Chapter.canceled += instance.OnChapter;
+                @Close.started += instance.OnClose;
+                @Close.performed += instance.OnClose;
+                @Close.canceled += instance.OnClose;
             }
         }
     }
@@ -766,7 +766,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnGrab(InputAction.CallbackContext context);
         void OnUse(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
-        void OnPause(InputAction.CallbackContext context);
     }
     public interface IBookActions
     {
@@ -774,5 +773,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnTalk(InputAction.CallbackContext context);
         void OnPage(InputAction.CallbackContext context);
         void OnChapter(InputAction.CallbackContext context);
+        void OnClose(InputAction.CallbackContext context);
     }
 }

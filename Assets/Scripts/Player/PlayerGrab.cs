@@ -100,7 +100,7 @@ public class PlayerGrab : MonoBehaviour
             case ItemStorage.toBelt:
                 prompts.Add(ButtonPrompt.toBelt);
                 break;
-            case ItemStorage.toLab:
+            case ItemStorage.toCollection:
                 prompts.Add(ButtonPrompt.ToInventory);
                 break;
         }
@@ -144,13 +144,37 @@ public class PlayerGrab : MonoBehaviour
             children.Add(parent.GetChild(i));
         return children;
     }
-    
+
     public void ToInventory()
     {
-        if (!isHolding || !holdObject) return;
-
-        Debug.Log("add " + holdObject + " to inventory");
-        //tutaj bedzie kod
-        Release();
+        switch ((bool)holdObject)
+        {
+            case true:
+                Debug.Log("storing " + holdObject.name);
+                switch (holdObject.storage)
+                {
+                    case ItemStorage.toBelt: //send to belt
+                        Debug.Log("add " + holdObject.Name + " to belt");
+                        Release();
+                        return;
+                    case ItemStorage.toCollection: //send to book's collection
+                        switch (IngredientListing.list.ContainsKey(holdObject.Name))
+                        {
+                            case true:
+                                Debug.Log("sending " + holdObject.Name + " to book");
+                                IngredientListing listing = IngredientListing.list[holdObject.Name];
+                                listing.count++;
+                                BookManager.active.SetPage(listing.GetPage());
+                                Release();
+                                Destroy(holdObject.gameObject);
+                                return;
+                            case false:
+                                Debug.Log("Ingredient name not found");
+                                break;
+                        }
+                        break;
+                }
+                break;
+        }
     }
 }

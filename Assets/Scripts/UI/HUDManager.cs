@@ -7,8 +7,10 @@ using TMPro;
 public class HUDManager : MonoBehaviour
 {
     public static HUDManager active;
+    [SerializeField] GameObject pointer;
     [SerializeField] GameObject interactionPrompt;
     [SerializeField] GameObject[] holdActionPrompts;
+    [SerializeField] GameObject[] bookPrompts;
 
     void Awake()
     {
@@ -37,5 +39,13 @@ public enum ButtonPrompt
     ToInventory,
     toBelt,
     Use
+}
+public enum BookPrompt
+{
+    nextPage,
+    prevPage,
+    nextChap,
+    prevChap,
+    select
 }
 

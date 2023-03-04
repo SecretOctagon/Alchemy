@@ -28,9 +28,6 @@ public class PlayerMovement : MonoBehaviour
     float longGrounded;
     bool isGrounded { get => longGrounded > 0; }
 
-    [Header("inventory")]
-    //inventory
-
     public static PlayerMovement active;
     PlayerControls inputs;
 
@@ -39,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
         active = this;
 
         inputs = new PlayerControls();
-        inputs.Player.Jump.performed += ctx => Jump();
+        inputs.Player.Jump.started += ctx => Jump();
 
         inputs.Player.Grab.performed += ctx => PlayerGrab.active.GrabOrRelease();
         inputs.Player.Inventory.performed += ctx => PlayerGrab.active.ToInventory();
@@ -59,7 +56,6 @@ public class PlayerMovement : MonoBehaviour
             cc = GetComponent<CharacterController>();
         camT = 0;
     }
-
     void Update()
     {
         camT += lookInput.y * camVSpeed * Time.deltaTime;
@@ -123,13 +119,6 @@ public class PlayerMovement : MonoBehaviour
         */
     }
     
-    void Jump()
-    {
-        if (isGrounded)
-        {
-            VerticalVelocity = jumpVelocity;
-        }
-    }
     void CalculateGrounded()
     {
         switch (cc.isGrounded)
@@ -142,7 +131,14 @@ public class PlayerMovement : MonoBehaviour
                 break;
         }
     }
-
+    void Jump()
+    {
+        if (isGrounded)
+        {
+            VerticalVelocity = jumpVelocity;
+        }
+    }
+    
     private void OnDrawGizmos()
     {
         if (!cc)

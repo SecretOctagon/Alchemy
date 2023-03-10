@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5216283150570470972
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 690699445128234938, guid: 858f6f2e6667f344b87fb9c76756fd15,
+        type: 3}
+      propertyPath: Name
+      value: sliced potato
+      objectReference: {fileID: 0}
+    - target: {fileID: 690699445128234938, guid: 858f6f2e6667f344b87fb9c76756fd15,
+        type: 3}
+      propertyPath: radius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2155701323293066553, guid: 858f6f2e6667f344b87fb9c76756fd15,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2155701323293066553, guid: 858f6f2e6667f344b87fb9c76756fd15,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2155701323293066553, guid: 858f6f2e6667f344b87fb9c76756fd15,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2155701323293066553, guid: 858f6f2e6667f344b87fb9c76756fd15,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2155701323293066553, guid: 858f6f2e6667f344b87fb9c76756fd15,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2155701323293066553, guid: 858f6f2e6667f344b87fb9c76756fd15,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2155701323293066553, guid: 858f6f2e6667f344b87fb9c76756fd15,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2155701323293066553, guid: 858f6f2e6667f344b87fb9c76756fd15,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2155701323293066553, guid: 858f6f2e6667f344b87fb9c76756fd15,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2155701323293066553, guid: 858f6f2e6667f344b87fb9c76756fd15,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2155701323293066553, guid: 858f6f2e6667f344b87fb9c76756fd15,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2466401941127491771, guid: 858f6f2e6667f344b87fb9c76756fd15,
+        type: 3}
+      propertyPath: m_Name
+      value: Potato cut Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3424572616202853239, guid: 858f6f2e6667f344b87fb9c76756fd15,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3424572616202853239, guid: 858f6f2e6667f344b87fb9c76756fd15,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 088372f86823ff74490bbec31f68e5ff, type: 2}
+    - target: {fileID: 4872184184239137128, guid: 858f6f2e6667f344b87fb9c76756fd15,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 8807330246397058578, guid: 5de5961cf739b8147951884afa7cbe9b,
+        type: 3}
+    - target: {fileID: 5815736104367131827, guid: 858f6f2e6667f344b87fb9c76756fd15,
+        type: 3}
+      propertyPath: m_Height
+      value: 0.19965932
+      objectReference: {fileID: 0}
+    - target: {fileID: 5815736104367131827, guid: 858f6f2e6667f344b87fb9c76756fd15,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.04617836
+      objectReference: {fileID: 0}
+    - target: {fileID: 5815736104367131827, guid: 858f6f2e6667f344b87fb9c76756fd15,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.0022066867
+      objectReference: {fileID: 0}
+    - target: {fileID: 5815736104367131827, guid: 858f6f2e6667f344b87fb9c76756fd15,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.012237225
+      objectReference: {fileID: 0}
+    - target: {fileID: 5815736104367131827, guid: 858f6f2e6667f344b87fb9c76756fd15,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.0033928945
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 858f6f2e6667f344b87fb9c76756fd15, type: 3}

@@ -44,6 +44,8 @@ public class BookManager : MonoBehaviour
     public void OpenBook(Vector2Int page)
     {
         PlayerMovement.active.enabled = false;
+        PlayerGrab.active.enabled = false;
+        DeviceInput.a.enabled = false;
 
         cam.enabled = true;
         anim.gameObject.SetActive(true);
@@ -59,6 +61,8 @@ public class BookManager : MonoBehaviour
         anim.SetBool(a_Open, false);
 
         PlayerMovement.active.enabled = true;
+        PlayerGrab.active.enabled = true;
+        DeviceInput.a.enabled = true;
     }
     public void DialogueHighlight()
     {

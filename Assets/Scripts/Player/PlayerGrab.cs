@@ -34,46 +34,46 @@ public class PlayerGrab : MonoBehaviour
         if (!targetTransform)
             targetTransform = cam.transform.GetChild(0);
     }
+    void OnDisable()
+    {
+        HUDManager.active.ShowPrompts(new List<ButtonPrompt>());
+    }
 
     void Update()
     {
         Ray ray = cam.ViewportPointToRay(Vector3.one * 0.5f);
         switch (isHolding)
         {
-            case false:
+            case false: //search for a PortableItem
                 switch (Physics.Raycast(ray, out RaycastHit hitInfo, MaxGrabDistance, ScanMask, QueryTriggerInteraction.Ignore))
                 {
-                    case true:
+                    case true: //physics object hit
                         switch (hitInfo.rigidbody && hitInfo.rigidbody.gameObject.layer == grabLayer)
                         {
-                            case true:
+                            case true: //rigidbody found
                                 holdObject = hitInfo.rigidbody.GetComponent<PortableItem>();
-                                //Debug.Log("looking at " + holdObject);
                                 switch ((bool)holdObject)
                                 {
-                                    case true:
-                                        HUDManager.active.InteractionPrompt(true, holdObject.Name);
-                                        return;
-                                    case false:
-                                        HUDManager.active.InteractionPrompt(true, "Interact");
+                                    case true: //PortableItem found
+                                        LookHUD();
                                         return;
                                 }
+                                break;
                         }
                         break;
                 }
-                HUDManager.active.InteractionPrompt(false, "");
+                //no PortableItem found
+                HUDManager.active.ShowPrompts(new List<ButtonPrompt>());
                 holdObject = null;
                 break;
-            case true:
+            case true: //manipulate object held
                 switch (Physics.SphereCast(ray, holdObject.radius, out RaycastHit hit, HoldDistance, ScanMask, QueryTriggerInteraction.Ignore))
                 {
                     case true:
                         targetTransform.position = hit.point + holdObject.radius * hit.normal;
-                        //Debug.Log("hit at " + hit.point);
                         break;
                     case false:
                         targetTransform.position = cam.transform.TransformPoint(0, 0, HoldDistance);
-                        //Debug.Log("no hit, moving to " + targetTransform.position);
                         break;
                 }
                 holdObject.rb.MovePosition(targetTransform.position);
@@ -81,7 +81,36 @@ public class PlayerGrab : MonoBehaviour
                 break;
         }
     }
+    void LookHUD()
+    {
+        HUDManager.active.ShowPrompts(new List<ButtonPrompt>());
+        HUDManager.active.ShowPromptCommand(ButtonPrompt.Grab, "Pick " + holdObject.Name);
+        
+        switch ((bool)holdObject.InDevice)
+        {
+            case true:
+                HUDManager.active.ShowPromptCommand(ButtonPrompt.Use, "Use " + holdObject.InDevice.Name);
+                break;
+        }
 
+        switch (holdObject.storage)
+        {
+            case ItemStorage.toHerbarium:
+                bool isListed = IngredientListing.list.ContainsKey(holdObject.Name);
+                switch (isListed)
+                {
+                    case true:
+                        HUDManager.active.ShowPromptCommand
+                                    (ButtonPrompt.toHerbarium, "Collect " + holdObject.Name);
+                        break;
+                }
+                break;
+            case ItemStorage.toBelt:
+                Debug.Log("Send " + holdObject + " to belt");
+                break;
+        }
+    }
+    
     public void Grab()
     {
         if (isHolding || !holdObject) return;
@@ -89,24 +118,24 @@ public class PlayerGrab : MonoBehaviour
         isHolding = true;
         holdObject.rb.isKinematic = true;
         holdObject.rb.useGravity = false;
+        holdObject.InDevice = null;
 
         List<Transform> withChildren = GetChildren(holdObject.transform);
         foreach (Transform c in withChildren) c.gameObject.layer = holdLayer;
 
-        HUDManager.active.InteractionPrompt(false, "");
         List<ButtonPrompt> prompts = new List<ButtonPrompt> { ButtonPrompt.Drop };
         switch (holdObject.storage)
         {
             case ItemStorage.toBelt:
                 prompts.Add(ButtonPrompt.toBelt);
                 break;
-            case ItemStorage.toCollection:
-                prompts.Add(ButtonPrompt.ToInventory);
+            case ItemStorage.toHerbarium:
+                prompts.Add(ButtonPrompt.toHerbarium);
                 break;
         }
+        HUDManager.active.ShowPrompts(prompts);
         if (holdObject.hasUse)
-            prompts.Add(ButtonPrompt.Use);
-        HUDManager.active.HoldingPrompt(prompts);
+            HUDManager.active.ShowPromptCommand(ButtonPrompt.Use, "Use " + holdObject.Name);
     }
     public void Release()
     {
@@ -119,7 +148,7 @@ public class PlayerGrab : MonoBehaviour
         List<Transform> withChildren = GetChildren(holdObject.transform);
         foreach (Transform c in withChildren) c.gameObject.layer = grabLayer;
 
-        HUDManager.active.HoldingPrompt(new List<ButtonPrompt>());
+        //HUDManager.active.ShowPrompts(new List<ButtonPrompt>());
     }
     public void GrabOrRelease()
     {
@@ -145,6 +174,24 @@ public class PlayerGrab : MonoBehaviour
         return children;
     }
 
+    public void UseItem()
+    {
+        if (holdObject)
+        {
+            if ((bool)holdObject.InDevice)
+            {
+                Debug.Log("Using " + holdObject.InDevice.name);
+                holdObject.InDevice.StartUse();
+            }
+            else if (holdObject.hasUse)
+            {
+                Debug.Log("Using " + holdObject.Name);
+            }
+            else
+                Debug.Log(holdObject.name + " can't be used");
+        }
+    }
+
     public void ToInventory()
     {
         switch ((bool)holdObject)
@@ -157,7 +204,7 @@ public class PlayerGrab : MonoBehaviour
                         Debug.Log("add " + holdObject.Name + " to belt");
                         Release();
                         return;
-                    case ItemStorage.toCollection: //send to book's collection
+                    case ItemStorage.toHerbarium: //send to book's collection
                         switch (IngredientListing.list.ContainsKey(holdObject.Name))
                         {
                             case true:

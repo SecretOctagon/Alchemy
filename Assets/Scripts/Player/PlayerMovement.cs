@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("camera")]
-    [SerializeField] Camera FPCamera;
+    [SerializeField] public Camera FPCamera;
     [SerializeField] Transform[] camPositions;
     [SerializeField] float camVSpeed;
     //[SerializeField] [Range(-1, 1)] 
@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
         inputs.Player.Grab.performed += ctx => PlayerGrab.active.GrabOrRelease();
         inputs.Player.Inventory.performed += ctx => PlayerGrab.active.ToInventory();
+        inputs.Player.Use.performed += ctx => PlayerGrab.active.UseItem();
     }
     private void OnEnable()
     {
@@ -77,11 +78,11 @@ public class PlayerMovement : MonoBehaviour
     {
         switch (camT < 0)
         {
-            case false:
+            case false: //upper half
                 FPCamera.transform.position = Vector3.Lerp(camPositions[1].position, camPositions[2].position, camT);
                 FPCamera.transform.rotation = Quaternion.Slerp(camPositions[1].rotation, camPositions[2].rotation, camT);
                 break;
-            case true:
+            case true: //lower half
                 float t = 1 + camT;
                 FPCamera.transform.position = Vector3.Lerp(camPositions[0].position, camPositions[1].position, t);
                 FPCamera.transform.rotation = Quaternion.Slerp(camPositions[0].rotation, camPositions[1].rotation, t);
@@ -139,6 +140,38 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     
+    public void InverseCameraT()
+    {
+        float tDownX = Mathf.InverseLerp(camPositions[0].rotation.x, camPositions[1].rotation.x, FPCamera.transform.rotation.x);
+        float tDownY = Mathf.InverseLerp(camPositions[0].rotation.y, camPositions[1].rotation.y, FPCamera.transform.rotation.y);
+        float tDownZ = Mathf.InverseLerp(camPositions[0].rotation.z, camPositions[1].rotation.z, FPCamera.transform.rotation.z);
+        float tDownW = Mathf.InverseLerp(camPositions[0].rotation.w, camPositions[1].rotation.w, FPCamera.transform.rotation.w);
+        float medTDown = (tDownX + tDownY + tDownZ + tDownW) / 4;
+        Quaternion invDown = Quaternion.Lerp(camPositions[0].rotation, camPositions[1].rotation, medTDown);
+        camT = medTDown - 1;
+        /*
+        float angleDown = Quaternion.Angle(invDown, FPCamera.transform.rotation);
+                
+        float tUpX = Mathf.InverseLerp(camPositions[1].rotation.x, camPositions[2].rotation.x, FPCamera.transform.rotation.x);
+        float tUpY = Mathf.InverseLerp(camPositions[1].rotation.y, camPositions[2].rotation.y, FPCamera.transform.rotation.y);
+        float tUpZ = Mathf.InverseLerp(camPositions[1].rotation.z, camPositions[2].rotation.z, FPCamera.transform.rotation.z);
+        float tUpW = Mathf.InverseLerp(camPositions[1].rotation.w, camPositions[2].rotation.w, FPCamera.transform.rotation.w);
+        float medTUp = (tUpX + tUpY + tUpZ + tUpW) / 4;
+        Quaternion invUp = Quaternion.Lerp(camPositions[1].rotation, camPositions[2].rotation, medTDown);
+        float angleUp = Quaternion.Angle(invDown, FPCamera.transform.rotation);
+        
+        Debug.Log("down reconstruction angle is " + angleDown + ", up is " + angleUp);
+        switch (angleDown < angleUp)
+        {
+            case true: //down is closer to original
+                camT = medTDown - 1;
+                break;
+            case false: //up is closer to original
+                camT = medTUp;
+                break;
+        }
+        */
+    }
     private void OnDrawGizmos()
     {
         if (!cc)

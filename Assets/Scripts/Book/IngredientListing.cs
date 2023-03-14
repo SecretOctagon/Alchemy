@@ -37,11 +37,4 @@ public class IngredientListing : MonoBehaviour
         int Chapter = ChapterT.GetSiblingIndex();
         return new Vector2Int(Chapter, Page);
     }
-    public static List<IngredientListing> ListIngredients()
-    {
-        foreach (IngredientListing listing in list)
-        {
-
-        }
-    }
 }

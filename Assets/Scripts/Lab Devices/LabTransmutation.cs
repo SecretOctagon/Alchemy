@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LabIngredient : MonoBehaviour
+public class LabTransmutation : MonoBehaviour
 {
     public string IngredientIn;
     public GameObject IngredientOut;
+    [SerializeField] Transform spawnPoint;
     Animator anim;
     [SerializeField] bool continuousProgress;
     [SerializeField] int[] advanceOn;
@@ -36,7 +37,11 @@ public class LabIngredient : MonoBehaviour
     public void EndTransmutation()
     {
         if (IngredientOut)
-            Instantiate(IngredientOut, transform.position, transform.rotation);
+        {
+            if (!spawnPoint)
+                spawnPoint = transform;
+            Instantiate(IngredientOut, spawnPoint.position, spawnPoint.rotation);
+        }
         ChildrenSetActive(false);
     }
     public void AdvanceTransmutation(float progress)

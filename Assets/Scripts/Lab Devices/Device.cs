@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Device : MonoBehaviour
 {
-    public Dictionary<string, LabIngredient> recipes = new Dictionary<string, LabIngredient>();
+    public Dictionary<string, LabTransmutation> recipes = new Dictionary<string, LabTransmutation>();
     public string Name;
     [SerializeField] Device chainInto;
 
@@ -12,7 +12,7 @@ public class Device : MonoBehaviour
     [SerializeField] float ingredientSnapTime;
     [SerializeField] int ingredientSnapLayer;
     protected PortableItem ingredient;
-    protected LabIngredient currentRecipe;
+    protected LabTransmutation currentRecipe;
 
     [Header("Snap player")]
     [SerializeField] float playerSnapTime;
@@ -21,8 +21,8 @@ public class Device : MonoBehaviour
 
     protected virtual void Start()
     {
-        LabIngredient[] ingredients = GetComponentsInChildren<LabIngredient>();
-        foreach (LabIngredient ing in ingredients)
+        LabTransmutation[] ingredients = GetComponentsInChildren<LabTransmutation>();
+        foreach (LabTransmutation ing in ingredients)
         {
             recipes.Add(ing.IngredientIn, ing);
         }
@@ -49,6 +49,7 @@ public class Device : MonoBehaviour
     }
     public virtual void StartUse()
     {
+        HUDManager.active.ShowCrosshair(false);
         StartCoroutine(SnapPlayer());
     }
     IEnumerator SnapPlayer()
@@ -102,6 +103,7 @@ public class Device : MonoBehaviour
                 PlayerMovement.active.enabled = true;
                 PlayerMovement.active.InverseCameraT();
                 PlayerGrab.active.enabled = true;
+                HUDManager.active.ShowCrosshair(true);
                 break;
         }
     }

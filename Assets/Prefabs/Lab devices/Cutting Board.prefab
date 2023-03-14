@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 58976355}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Mid (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 153702059}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Down (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 337641630}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Down (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 499593674}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Return
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 546803581}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Mid (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 570679375}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Up (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 595197369}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Down (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 698237165}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Up (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 723066330}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Up (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +288,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 824585337}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: PathPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,7 +340,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1092077059}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Down (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -371,7 +371,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1243476533}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Up (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -402,7 +402,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1288654657}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Mid (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -433,7 +433,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1290743653}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Down (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -464,7 +464,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1463763118}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Mid (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -495,7 +495,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1631367238}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Up (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -526,7 +526,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1648100686}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Mid (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -557,7 +557,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1749473487}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Up (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -588,7 +588,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1873077500}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -619,7 +619,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1911774791}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Down (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -650,7 +650,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1958102348}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Mid (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -672,6 +672,37 @@ Transform:
   m_Father: {fileID: 824585337}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6863724123824037740
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6958102279262726894}
+  m_Layer: 8
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6958102279262726894
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6863724123824037740}
+  m_LocalRotation: {x: 0.000000059604638, y: 0.7071065, z: -0, w: 0.7071071}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8962223673799746697}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &7286558824970097712
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,7 +712,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2299104894794573381}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Up (0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -712,7 +743,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 735974001075482709}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Player Stand Here
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -745,7 +776,7 @@ GameObject:
   - component: {fileID: 3617150030539073398}
   - component: {fileID: 255035106892960165}
   - component: {fileID: 3465675379885520007}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Knife
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -830,9 +861,11 @@ GameObject:
   - component: {fileID: 8929107059752248958}
   - component: {fileID: 8929107059752248959}
   - component: {fileID: 1153483299}
+  - component: {fileID: 2445608857747880619}
+  - component: {fileID: 3604188030352035365}
   - component: {fileID: 5221510412342893014}
   - component: {fileID: 8247837039934382836}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Cutting Board
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1010,6 +1043,41 @@ MonoBehaviour:
   drawGizmos: 1
   GizmoRadius: 0.003
   GizmoResolution: 7
+--- !u!114 &2445608857747880619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8929107059752248896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a24c3a0dbfb2981468c92800af50aa77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0
+  Name: 
+  storage: 0
+  canBeCarried: 0
+  hasUse: 0
+  InDevice: {fileID: 0}
+  rb: {fileID: 0}
+--- !u!54 &3604188030352035365
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8929107059752248896}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!65 &5221510412342893014
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1131,17 +1199,17 @@ PrefabInstance:
     - target: {fileID: -3491062040470223631, guid: 83aa6545b7700504bba1cd023dd71fcb,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -1506184045888793796, guid: 83aa6545b7700504bba1cd023dd71fcb,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 821722688367073344, guid: 83aa6545b7700504bba1cd023dd71fcb,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 83aa6545b7700504bba1cd023dd71fcb,
         type: 3}
@@ -1151,22 +1219,22 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 83aa6545b7700504bba1cd023dd71fcb,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2776610500353405758, guid: 83aa6545b7700504bba1cd023dd71fcb,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3551736682519850601, guid: 83aa6545b7700504bba1cd023dd71fcb,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5195272420520880363, guid: 83aa6545b7700504bba1cd023dd71fcb,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5662907610312083786, guid: 83aa6545b7700504bba1cd023dd71fcb,
         type: 3}
@@ -1191,22 +1259,22 @@ PrefabInstance:
     - target: {fileID: 6192991744622692253, guid: 83aa6545b7700504bba1cd023dd71fcb,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8352218016233181649, guid: 83aa6545b7700504bba1cd023dd71fcb,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9077788592835726521, guid: 83aa6545b7700504bba1cd023dd71fcb,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9088571151386068374, guid: 83aa6545b7700504bba1cd023dd71fcb,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83aa6545b7700504bba1cd023dd71fcb, type: 3}
@@ -1231,6 +1299,7 @@ MonoBehaviour:
   IngredientIn: potato
   IngredientOut: {fileID: 7663330634263645831, guid: 63d77840f99559948b61e72fa3125e16,
     type: 3}
+  spawnPoint: {fileID: 6958102279262726894}
   continuousProgress: 0
   advanceOn: 0200000005000000080000000b0000000e0000001100000012000000
 --- !u!4 &8962223673799746697 stripped

@@ -52,6 +52,7 @@ public class PlayerGrab : MonoBehaviour
                         {
                             case true: //rigidbody found
                                 holdObject = hitInfo.rigidbody.GetComponent<PortableItem>();
+                                Debug.Log("looking at " + holdObject);
                                 switch ((bool)holdObject)
                                 {
                                     case true: //PortableItem found
@@ -84,15 +85,18 @@ public class PlayerGrab : MonoBehaviour
     void LookHUD()
     {
         HUDManager.active.ShowPrompts(new List<ButtonPrompt>());
-        HUDManager.active.ShowPromptCommand(ButtonPrompt.Grab, "Pick " + holdObject.Name);
-        
-        switch ((bool)holdObject.InDevice)
+        switch (holdObject.canBeCarried)
+        {
+            case true:
+            HUDManager.active.ShowPromptCommand(ButtonPrompt.Grab, "Pick " + holdObject.Name);
+                break;
+        }
+        switch ((bool)holdObject.InDevice && holdObject.InDevice.CanBeUsed())
         {
             case true:
                 HUDManager.active.ShowPromptCommand(ButtonPrompt.Use, "Use " + holdObject.InDevice.Name);
                 break;
         }
-
         switch (holdObject.storage)
         {
             case ItemStorage.toHerbarium:
@@ -113,7 +117,7 @@ public class PlayerGrab : MonoBehaviour
     
     public void Grab()
     {
-        if (isHolding || !holdObject) return;
+        if (isHolding || !holdObject || !holdObject.canBeCarried) return;
 
         isHolding = true;
         holdObject.rb.isKinematic = true;

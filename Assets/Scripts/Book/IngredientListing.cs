@@ -17,6 +17,7 @@ public class IngredientListing : MonoBehaviour
             list = new Dictionary<string, IngredientListing>();
 
         list.Add(Name, this);
+        Debug.Log("ingredients in book: " + list);
     }
     void OnDestroy()
     {
@@ -35,5 +36,12 @@ public class IngredientListing : MonoBehaviour
         Transform ChapterT = PageT.parent;
         int Chapter = ChapterT.GetSiblingIndex();
         return new Vector2Int(Chapter, Page);
+    }
+    public static List<IngredientListing> ListIngredients()
+    {
+        foreach (IngredientListing listing in list)
+        {
+
+        }
     }
 }

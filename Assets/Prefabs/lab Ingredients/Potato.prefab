@@ -65,6 +65,7 @@ MonoBehaviour:
   radius: 0.07
   Name: potato
   storage: 1
+  canBeCarried: 1
   hasUse: 0
   InDevice: {fileID: 0}
   rb: {fileID: 0}

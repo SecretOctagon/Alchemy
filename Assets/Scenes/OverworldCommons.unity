@@ -137,6 +137,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 488825219}
     m_Modifications:
+    - target: {fileID: 3389776243334371021, guid: d9b59653a2087454aa444580e4017406,
+        type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 702250426}
     - target: {fileID: 6146711127399843088, guid: d9b59653a2087454aa444580e4017406,
         type: 3}
       propertyPath: m_Name
@@ -279,6 +284,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e09197e8effad12419670da8928264a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &702250426 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6146711127399843088, guid: d9b59653a2087454aa444580e4017406,
+    type: 3}
+  m_PrefabInstance: {fileID: 172944279}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &902344517
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -685,7 +696,7 @@ GameObject:
   - component: {fileID: 1961479021}
   - component: {fileID: 1961479023}
   m_Layer: 6
-  m_Name: Other
+  m_Name: Device input
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

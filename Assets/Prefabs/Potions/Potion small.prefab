@@ -176,7 +176,9 @@ MonoBehaviour:
   radius: 0.12
   Name: potion
   storage: 0
+  canBeCarried: 1
   hasUse: 0
+  InDevice: {fileID: 0}
   rb: {fileID: 0}
 --- !u!114 &4812252658564862318
 MonoBehaviour:

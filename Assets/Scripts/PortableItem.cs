@@ -7,11 +7,12 @@ public class PortableItem : MonoBehaviour
     public float radius;
     public string Name;
     public ItemStorage storage;
+    public bool canBeCarried;
     public bool hasUse;
     public Device InDevice;
     [HideInInspector] public Rigidbody rb;
 
-    void Start()
+    protected virtual void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
